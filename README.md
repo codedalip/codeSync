@@ -77,14 +77,23 @@ The frontend application will be accessible at `http://localhost:5173`.
 
 ## Environment Configuration
 
-### Backend Environment Variables (`backend/.env`)
+### Backend Environment Variables (`backend/.env` / Cloud Provider Settings)
 
 ```env
 PORT=5000
-MONGO_URI=mongodb://localhost:27017/codesync
 JWT_SECRET=your_production_jwt_secret_key
-NODE_ENV=development
+NODE_ENV=production
+
+# Optional Cloud Database (MongoDB Atlas connection string)
+MONGODB_URI=mongodb+srv://username:password@cluster.mongodb.net/codesync
+
+# Optional AI Assistant Key (Google AI Studio Gemini API Key)
+GEMINI_API_KEY=AIzaSy...your_gemini_api_key
 ```
+
+- **`MONGODB_URI`** *(Optional)*: MongoDB Atlas connection string. If omitted, the server automatically uses a built-in instant database fallback.
+- **`GEMINI_API_KEY`** *(Optional)*: Free Google Gemini API Key from [Google AI Studio](https://aistudio.google.com/). Enables live Gemini 2.0 / 1.5 Flash AI model responses in the IDE sidebar.
+- **`JWT_SECRET`** *(Recommended)*: Secret string for signing authentication tokens.
 
 ### Frontend Environment Variables (`frontend/.env`)
 
